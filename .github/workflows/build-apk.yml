@@ -1,0 +1,37 @@
+name: بناء APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: تثبيت Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: منح صلاحية تنفيذ لـ gradlew
+        working-directory: hidmaty-android
+        run: chmod +x ./gradlew || true
+
+      - name: توليد gradlew لو غير موجود
+        working-directory: hidmaty-android
+        run: gradle wrapper --gradle-version 8.7
+        if: hashFiles('hidmaty-android/gradlew') == ''
+
+      - name: بناء APK (debug)
+        working-directory: hidmaty-android
+        run: ./gradlew assembleDebug
+
+      - name: رفع الملف الناتج
+        uses: actions/upload-artifact@v4
+        with:
+          name: hidmaty-app-debug
+          path: hidmaty-android/app/build/outputs/apk/debug/app-debug.apk
