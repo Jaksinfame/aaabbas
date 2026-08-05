@@ -28,7 +28,7 @@ android {
             // على نفس شبكة الواي-فاي بالضبط. لو تغيّر عنوان جهازك لاحقاً
             // (شبكة مختلفة)، حدِّثه هنا وبملف
             // res/xml/network_security_config_debug.xml أيضاً (نفس الـIP بالاثنين).
-            buildConfigField("String", "BASE_URL", "\"http://192.168.1.32:3000/\"")
+            buildConfigField("String", "BASE_URL", "\"https://storewide-skinning-enjoyment.ngrok-free.dev/\"")
         }
     }
 
