@@ -222,16 +222,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupBackPress() {
-        onBackPressedDispatcher.addCallback(this) {
+  private fun setupBackPress() {
+    onBackPressedDispatcher.addCallback(this, object : androidx.activity.OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
             if (binding.webView.canGoBack()) {
                 binding.webView.goBack()
             } else {
                 finish()
             }
         }
-    }
-
+    })
+}
     private fun openFileChooser() {
         val chooserIntent = Intent(Intent.ACTION_CHOOSER)
         val galleryIntent = Intent(Intent.ACTION_GET_CONTENT).apply {
