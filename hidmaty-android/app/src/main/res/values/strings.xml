@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حِدمتي</string>
+    <string name="connection_error">تعذّر الاتصال — تحقّق من الإنترنت وحاول مرة أخرى</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="choose_image">اختر صورة</string>
+    <string name="no_app_found">لا يوجد تطبيق مناسب لفتح هذا الرابط</string>
+</resources>

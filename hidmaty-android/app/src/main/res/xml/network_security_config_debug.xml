@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- ⚠️ هذا الاستثناء لوضع debug فقط (راجع AndroidManifest — يُطبَّق فقط
+         بالنسخة اللي تبنيها للتجربة على جهازك). عدِّل الـIP لو تغيّر عندك
+         (شبكة واي-فاي مختلفة تُغيّر عنوان جهازك أحياناً). -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">192.168.1.32</domain>
+    </domain-config>
+
+    <!-- كل شيء غير هذا العنوان يبقى https إلزامياً -->
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>
